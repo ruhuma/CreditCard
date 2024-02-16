@@ -73,9 +73,9 @@ def hey():
                 classification = 'Unable to process'
             return render_template('classification.html',creditscore=classification)
         else:
-            return render_template('error.html',creditscore='Unable to process with received input.')
+            return render_template('error.html',creditscore='Unable to process with received input..')
     except ValueError:
-        return render_template('error.html',creditscore='Invalid Input! Please enter correct data types in the form!')
+        return render_template('error.html',creditscore='Invalid Input. Please enter correct data types in the form!')
 
 if __name__ == '__main__':
     app.run()
