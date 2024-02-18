@@ -43,7 +43,7 @@ def hey():
             payment_behaviour = float(request.form['payment_behaviour'])
             print(payment_behaviour)
             print(occupation)
-            with open('label_encoder_1.pkl', 'rb') as file:
+            with open('label_encoder_3.pkl', 'rb') as file:
                 label_encoder = pickle.load(file)
             occupation_encoded = label_encoder.transform(np.array([[occupation]]))
             print('encoded',occupation_encoded)
@@ -55,8 +55,8 @@ def hey():
                                      ,num_loans,delay_due_date,delay_payments,changed_credit_limit,credit_inquiry,credit_mix,outstanding_debts,credit_ration,credit_history_age,minimum_amount,
                                      EMI_per_month,amount_invested_monthly,payment_behaviour,monthly_balance]]).astype(np.float64)
             
-            model = pickle.load(open('best_rf_model.pkl','rb'))
-            scaler = joblib.load("stdscaler_CS.pkl")
+            model = pickle.load(open('best_rf_model_3.pkl','rb'))
+            scaler = joblib.load("stdscaler_CS_3.pkl")
             input_scaled_G = scaler.transform(input_array)
             print('Input scaled',input_scaled_G)
             creditscoreclassified = model.predict(input_scaled_G)
