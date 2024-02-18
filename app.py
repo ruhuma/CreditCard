@@ -52,10 +52,10 @@ def hey():
             print(monthly_balance)
 
             input_array = np.array([[selected_month,age,occupation_encoded_d,annualincome,num_bank_accounts,num_credit_card,interest_rate
-                                     ,num_loans,delay_due_date,delay_payments,changed_credit_limit,credit_inquiry,credit_mix,outstanding_debts,credit_ration,credit_history_age,minimum_amount,
-                                     EMI_per_month,amount_invested_monthly,payment_behaviour,monthly_balance]]).astype(np.float64)
+                                     ,num_loans,delay_due_date,delay_payments,changed_credit_limit,credit_mix,credit_ration,credit_history_age,minimum_amount,
+                                     EMI_per_month,payment_behaviour,monthly_balance]]).astype(np.float64)
             
-            model = pickle.load(open('best_rf_model_3.pkl','rb'))
+            model = pickle.load(open('best_rf_model_4.pkl','rb'))
             scaler = joblib.load("stdscaler_CS_3.pkl")
             input_scaled_G = scaler.transform(input_array)
             print('Input scaled',input_scaled_G)
