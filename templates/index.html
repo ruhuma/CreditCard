@@ -141,10 +141,6 @@
               <tr style="padding:25px">
                 <td class="left"><label for="changed_credit_limit">Changed Credit Limit: </label>
                 <td><input class="tbox" type="text" id="changed_credit_limit" name="changed_credit_limit"  required></td>
-                <td class="left"><label for="credit_inquiry">Number of Credit Inquiries: </label>
-                <td><input class="tbox" type="text" id="credit_inquiry" name="credit_inquiry"  required></td>
-              </tr>
-              <tr style="padding:25px">
                 <td class="left"><label for="credit_mix">Credit Mix: </label>
                 <td>
                     <select id="credit_mix" name="credit_mix" class="tbox" >
@@ -153,9 +149,8 @@
                         <option value="2">Standard</option>
                     </select>
                 </td>
-                <td class="left"><label for="outstanding_debts">Outstanding Debts: </label>
-                <td><input class="tbox" type="text" id="outstanding_debts" name="outstanding_debts"  required></td>
               </tr>
+              
               <tr style="padding:25px">
                 <td class="left"><label for="credit_ration">Credit Utilization Ratio: </label>
                 <td><input class="tbox" type="text" id="credit_ration" name="credit_ration"  required></td>
@@ -175,14 +170,8 @@
                 <td><input class="tbox" type="text" id="EMI_per_month" name="EMI_per_month"  required></td>
               </tr>
               <tr style="padding:25px">
-                <td class="left"><label for="amount_invested_monthly">Amount Invested Monthly: </label>
-                <td><input class="tbox" type="text" id="amount_invested_monthly" name="amount_invested_monthly"  required></td>
-                <td class="left"><label for="monthly_balance">Monthly Balance: </label>
-                <td><input class="tbox" type="text" id="monthly_balance" name="monthly_balance"  required></td>
-              </tr>
-              <tr style="padding:25px">
                 <td class="left"><label for="payment_behaviour">Payment Behaviour: </label>
-                <td> <select id="payment_behaviour" name="payment_behaviour">
+                  <td> <select id="payment_behaviour" name="payment_behaviour">
                     <option value="0">High spent small value payments</option>
                     <option value="1">Low spent Large value payments</option>
                     <option value="2">Low spent Medium value payments</option>
@@ -190,9 +179,10 @@
                     <option value="4">High spent Medium value payments</option>
                     <option value="5">High spent Large value payments</option>
                 </select></td>
-                <td ></td>
-                <td></td>
+                <td class="left"><label for="monthly_balance">Monthly Balance: </label>
+                <td><input class="tbox" type="text" id="monthly_balance" name="monthly_balance"  required></td>
               </tr>
+              
         </table></br>
         <input type="submit" value="SUBMIT" class="sbtbutton">      
     </div>

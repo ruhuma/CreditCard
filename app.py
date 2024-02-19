@@ -5,6 +5,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 import pandas as pd
 import os
+from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 @app.route('/')
@@ -31,25 +32,34 @@ def hey():
             delay_due_date = float(request.form['delay_due_date'])
             delay_payments = float(request.form['delay_payments'])
             changed_credit_limit = float(request.form['changed_credit_limit'])
-            credit_inquiry = float(request.form['credit_inquiry'])
+            #credit_inquiry = float(request.form['credit_inquiry'])
             credit_mix = float(request.form['credit_mix'])
-            outstanding_debts = float(request.form['outstanding_debts'])
+            #outstanding_debts = float(request.form['outstanding_debts'])
             credit_ration = float(request.form['credit_ration'])
             credit_history_age = float(request.form['credit_history_age'])
             minimum_amount = float(request.form['minimum_amount'])
             EMI_per_month = float(request.form['EMI_per_month'])
-            amount_invested_monthly = float(request.form['amount_invested_monthly'])
+            #amount_invested_monthly = float(request.form['amount_invested_monthly'])
             monthly_balance = float(request.form['monthly_balance'])
             payment_behaviour = float(request.form['payment_behaviour'])
             print(payment_behaviour)
             print(occupation)
             with open('label_encoder_5.pkl', 'rb') as file:
                 label_encoder = pickle.load(file)
-            occupation_encoded = label_encoder.transform(np.array([[occupation]]))
-            print('encoded',occupation_encoded)
-            occupation_encoded_d = occupation_encoded[0].astype(np.float64)
-            print(occupation_encoded_d)
-            print(monthly_balance)
+            #occupation_encoded = label_encoder.transform(np.array([[occupation]]))
+            #print('encoded',occupation_encoded)
+            #occupation_encoded_d = occupation_encoded[0].astype(np.float64)
+            #print(occupation_encoded_d)
+            if occupation in label_encoder.classes_:
+                occupation_encoded = label_encoder.transform(np.array([[occupation]]))
+                # Convert to float64 if needed
+                occupation_encoded_d = occupation_encoded[0].astype(np.float64)
+            else:
+                le=LabelEncoder()
+                occupation_encoded = le.fit_transform(np.array([[occupation]]))
+                occupation_encoded_d = occupation_encoded[0].astype(np.float64)
+            print('monthly balance',monthly_balance)
+            print('occupation encoded',occupation_encoded_d)
 
             input_array = np.array([[selected_month,age,occupation_encoded_d,annualincome,num_bank_accounts,num_credit_card,interest_rate
                                      ,num_loans,delay_due_date,delay_payments,changed_credit_limit,credit_mix,credit_ration,credit_history_age,minimum_amount,
